@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 // Create POST controller
 router.post('/', (req, res) => {
+  res.render('results')
   console.log(req.body)
 })
 // views
@@ -72,5 +73,6 @@ const data = [
 router.get('/', (req, res) => {
   res.render('results', { data: data })
 })
+
 // Export module
 module.exports = router
