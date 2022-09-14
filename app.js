@@ -41,6 +41,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 // )
 
 // Routes
+app.use('/', require('./controllers/search'))
+app.use('/results', require('./controllers/results'))
+
 // Create route for search
 app.get('/', (req, res) => {
   res.render('search')
