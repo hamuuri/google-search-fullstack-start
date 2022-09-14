@@ -2,11 +2,6 @@
 const express = require('express')
 const router = express.Router()
 // Create POST controller
-router.post('/', (req, res) => {
-  res.render('results')
-  console.log(req.body)
-})
-// views
 const data = [
   {
     title: 'JavaScript Tutorial - W3School',
@@ -69,9 +64,19 @@ const data = [
     ]
   }
 ]
+const filterResults = (resultsList, search) => {
+  return resultsList.filter(result => result.title.includes(search))
+}
 
-router.get('/', (req, res) => {
-  res.render('results', { data: data })
+// views
+router.post('/', (req, res) => {
+  // this is the input of the user:
+  let searchValue = req.body.search
+
+  // this is what you render
+  res.render('results', {
+    results: filterResults(data, searchValue)
+  })
 })
 
 // Export module
