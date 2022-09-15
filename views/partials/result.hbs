@@ -1,0 +1,15 @@
+
+<div class="result-box">
+	<small>{{element.url}}</small>
+	<a href="#" class="results-title"
+		><h2>{{element.title}}</h2></a
+	>
+	<p>
+		{{element.description}}
+	</p>
+	<ul>
+		{{#each links as |link|}}
+		<li>{{link.url}}</li>
+		{{/each}}
+	</ul>
+</div>
