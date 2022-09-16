@@ -72,7 +72,7 @@ const Results = require('../models/results')
 // views
 router.post('/', async (req, res) => {
   let data = await Results.find({
-    title: req.body.search
+    title: { $regex: req.body.search, $options: 'i' }
   })
   res.render('results', { results: data })
   // this is the input of the user:
